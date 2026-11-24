@@ -1,5 +1,5 @@
 // Service worker do app de treino
-const VERSION = "7609a1b1b4";
+const VERSION = "661d9dff24";
 const SHELL = "shell-" + VERSION;
 const ASSETS = ["./","./index.html","./manifest.webmanifest","./icons/apple-touch-icon.png","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./fonts/barlow-condensed-500.woff2","./fonts/barlow-condensed-600.woff2","./fonts/barlow-condensed-700.woff2","./fonts/jetbrains-mono-500.woff2","./fonts/source-sans-3-400.woff2","./fonts/source-sans-3-600.woff2","./fonts/source-sans-3-700.woff2"];
 
