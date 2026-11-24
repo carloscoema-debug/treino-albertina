@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu treino</title>
+<meta name="description" content="Plano de musculação em casa: treino do dia, vídeos, níveis e cronômetro de descanso.">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111816" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Treino">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="preload" href="fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-text-size-adjust:100%}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/barlow-condensed-500.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/barlow-condensed-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/barlow-condensed-700.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/jetbrains-mono-500.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/source-sans-3-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/source-sans-3-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/source-sans-3-700.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+.pwa-box{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);padding:16px;display:flex;flex-direction:column;gap:10px}
+.pwa-box h2{font-size:1.5rem;margin:0}
+.pwa-box ol{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px}
+.pwa-box .row{display:flex;flex-wrap:wrap;gap:10px}
+.pwa-banner{padding:12px 16px;border:1px solid var(--line);background:var(--surface);display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
+.pwa-banner.off{border-left:5px solid var(--power)}
+.pwa-banner.up{border-left:5px solid var(--accent)}
+.pwa-status{font-size:.92rem;color:var(--muted)}
+.pwa-status.ok{color:var(--accent)}
+</style>
+<style>
+/* Layout: ficha de treino em coluna única; faixa semanal em grade; cada dia vira uma tabela de blocos com tempo marcado */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#1b2422; --muted:#5b6965; --line:#d9e1de;
+  --accent:#0f6e62; --accent-soft:#e1f0ec; --power:#b45309; --power-soft:#fdf0e1;
+  --balance:#4f46a8; --balance-soft:#ecebfa; --warn:#9f1d2c; --warn-soft:#fbe9eb;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111816; --surface:#18211f; --fg:#e4ece9; --muted:#9aaba6; --line:#2c3a37;
+  --accent:#4fc2ae; --accent-soft:#16332e; --power:#f0a04b; --power-soft:#3a2711;
+  --balance:#a7a1f0; --balance-soft:#26244a; --warn:#f08a95; --warn-soft:#3b1a1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111816; --surface:#18211f; --fg:#e4ece9; --muted:#9aaba6; --line:#2c3a37;
+  --accent:#4fc2ae; --accent-soft:#16332e; --power:#f0a04b; --power-soft:#3a2711;
+  --balance:#a7a1f0; --balance-soft:#26244a; --warn:#f08a95; --warn-soft:#3b1a1f; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:980px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;letter-spacing:.01em}
+h2{font-size:1.9rem;font-weight:700;margin-bottom:14px}
+h3{font-size:1.35rem;font-weight:600}
+p{margin:0;max-width:68ch}
+section{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:1.12rem;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:14px;border-bottom:3px solid var(--fg);padding-bottom:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.88rem;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column}
+.facts b{font-family:var(--display);font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums}
+.facts span{font-size:.85rem;color:var(--muted)}
+ul.ev{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:8px;max-width:72ch}
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;max-width:none}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.week{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.week{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.week{grid-template-columns:1fr}}
+.day{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--accent);padding:12px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit}
+.day.pw{border-top-color:var(--power)}
+.day:hover,.day:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.day .d{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.day .t{font-family:var(--display);font-size:1.25rem;font-weight:700;line-height:1.1}
+.day .g{font-size:.88rem;color:var(--muted)}
+.timeline{display:flex;width:100%;border:1px solid var(--line);font-size:.85rem}
+.timeline div{padding:10px 8px;border-right:1px solid var(--line);background:var(--surface);min-width:0}
+.timeline div:last-child{border-right:0}
+.timeline b{display:block;font-family:var(--mono);font-size:.78rem;color:var(--accent)}
+@media (max-width:640px){.timeline{flex-direction:column}.timeline div{border-right:0;border-bottom:1px solid var(--line);flex:none!important}}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.88rem;color:var(--muted)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;white-space:nowrap}
+.tag.pw{color:var(--power);background:var(--power-soft)}
+.tag.eq{color:var(--balance);background:var(--balance-soft)}
+.tag.fo{color:var(--accent);background:var(--accent-soft)}
+.session{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;scroll-margin-top:16px}
+.session-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;padding:16px 18px;border-bottom:2px solid var(--fg)}
+.session-head .meta{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.dose{font-family:var(--mono);font-size:.85rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.ex{font-weight:600;min-width:180px}
+td.ex small{display:block;font-weight:400;color:var(--muted);font-size:.85rem;margin-top:2px}
+tr.block td{background:var(--bg);font-family:var(--display);font-weight:600;font-size:1.05rem;padding-top:7px;padding-bottom:7px}
+tr.block td span{font-family:var(--mono);font-size:.72rem;color:var(--muted);font-weight:500;margin-left:8px}
+.pair{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:500;margin-right:6px}
+.plain th,.plain td{border-bottom:1px solid var(--line)}
+.plain{background:var(--surface);border:1px solid var(--line)}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;counter-reset:s}
+.ladder div{background:var(--surface);border:1px solid var(--line);padding:12px;font-size:.92rem;display:flex;flex-direction:column;gap:4px}
+.ladder div::before{counter-increment:s;content:"Degrau " counter(s);font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+.two>div{min-width:0}
+ol.src{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+a{color:var(--accent)}
+a.vid{color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+a.vid::after{content:" ▶";font-size:.72em;vertical-align:1px;text-decoration:none;display:inline-block;margin-left:2px}
+a.vid:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+.weeks{padding:10px 18px;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--muted);max-width:none}
+.weeks b{color:var(--fg)}
+.evo{display:block;margin-top:6px;font-size:.84rem;color:var(--muted)}
+.evo b{color:var(--accent);font-weight:600}
+.tag.os{color:var(--warn);background:var(--warn-soft)}
+details.precheck{border:1px solid var(--line);border-left:5px solid var(--warn);background:var(--warn-soft);padding:0 14px}
+details.precheck summary{cursor:pointer;font-weight:600;min-height:48px;display:flex;align-items:center}
+details.precheck summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+details.precheck ul{margin:0 0 10px;padding-left:1.2rem;display:flex;flex-direction:column;gap:6px}
+details.precheck p{margin-bottom:12px}
+details.lv{margin-top:8px;font-size:.86rem}
+details.lv summary{cursor:pointer;color:var(--accent);font-weight:600;list-style-position:inside}
+details.lv summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details.lv ol{margin:6px 0 0;padding-left:1.4rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+details.lv li::marker{color:var(--accent);font-weight:600}
+/* Celular: tabelas viram cartões empilhados, sem rolagem lateral */
+@media (max-width:640px){
+  body{font-size:16px}
+  .tbl{overflow-x:visible}
+  .session table,.session tbody,.session tr,.session td,table.plain,table.plain tbody,table.plain tr,table.plain td{display:block;width:auto}
+  .session thead,table.plain thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .session tbody tr{display:grid;grid-template-columns:1fr 1fr;column-gap:14px;row-gap:8px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .session tbody tr.block{display:block;padding:0}
+  .session tr.block td{padding:10px 16px;border-bottom:0}
+  .session td{border-bottom:0;padding:0;min-width:0}
+  .session td.ex{grid-column:1 / -1;min-width:0;font-size:1.06rem}
+  .session td.how{grid-column:1 / -1}
+  .session td.dose{white-space:normal;font-size:.95rem}
+  .session td[data-label]::before,table.plain td[data-label]::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  table.plain tbody tr{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  table.plain td{border-bottom:0;padding:0;display:grid;grid-template-columns:7.5em minmax(0,1fr);column-gap:10px;align-items:baseline}
+  table.plain td[data-label]::before{margin-bottom:0}
+  table.plain td.first{font-weight:600}
+  .session-head{padding:14px 16px}
+  .weeks{padding:10px 16px}
+  details.lv{font-size:.95rem}
+  details.lv summary{display:flex;align-items:center;min-height:44px}
+  .evo{font-size:.92rem}
+  .tag{font-size:.72rem}
+  td.ex small{font-size:.9rem}
+  .facts b{font-size:1.4rem}
+}
+td.b{font-weight:600}
+ol.steps{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.walks{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.walks div{background:var(--surface);border:1px solid var(--line);padding:8px;display:flex;flex-direction:column;gap:2px;font-size:.82rem;min-width:0}
+.walks b{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.walks span.w{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--accent)}
+@media (max-width:760px){.walks{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:440px){.walks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Tokens de texto sobre cor de destaque */
+:root{--on-accent:#ffffff;--on-power:#ffffff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--on-accent:#0b1a17;--on-power:#241505}}
+:root[data-theme="dark"]{--on-accent:#0b1a17;--on-power:#241505}
+/* Estrutura e acessibilidade */
+main{display:flex;flex-direction:column;gap:48px}
+[id]{scroll-margin-top:76px}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:16px;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:60;background:var(--surface);color:var(--fg);padding:12px 16px;border:2px solid var(--accent)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:600 1rem var(--body);border-radius:6px;text-decoration:none;cursor:pointer;touch-action:manipulation}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn:focus-visible,.daybar a:focus-visible,.timer button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+/* Cartão de hoje */
+.today-card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--accent);padding:20px}
+.today-card h2{margin-bottom:0}
+.today-actions{display:flex;flex-wrap:wrap;gap:10px}
+.wake-msg{font-size:.92rem;color:var(--muted)}
+.wake-msg:empty{display:none}
+.day.today{outline:3px solid var(--accent);outline-offset:-3px}
+.day.today .d::after{content:" · hoje";color:var(--accent);font-weight:600}
+.divider{border-top:3px solid var(--fg);padding-top:24px}
+/* Barra de dias */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.daybar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.daybar-in{max-width:980px;margin:0 auto;display:flex;gap:6px;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.daybar a{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--fg);font:600 .95rem var(--body);background:var(--surface);touch-action:manipulation}
+.daybar a.today{border-color:var(--accent);color:var(--accent);border-width:2px}
+.daybar a.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.daybar a.up{flex:0 0 48px;font-size:1.1rem}
+/* Links de vídeo nas fichas: alvo de toque maior e rótulo escrito */
+.session td.ex a.vid{display:inline-block;padding-block:9px;line-height:1.3}
+.session a.vid::after{content:" ▶ vídeo";font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;margin-left:4px}
+/* Cronômetro */
+.timer{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.timer-fab{min-height:52px;min-width:52px;padding:0 20px;border-radius:999px;border:0;background:var(--power);color:var(--on-power);font:700 1rem var(--body);box-shadow:0 4px 14px rgba(0,0,0,.28);cursor:pointer;font-variant-numeric:tabular-nums;touch-action:manipulation}
+.timer-fab.running{font-size:1.15rem}
+.timer-fab.ring{animation:pulse .5s ease-out 6}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.timer-fab.ring{animation:none;outline:4px solid var(--power);outline-offset:3px}}
+.timer-panel{background:var(--surface);border:1px solid var(--line);padding:14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:10px;width:236px}
+.timer-display{font:700 2.6rem/1 var(--display);text-align:center;font-variant-numeric:tabular-nums;margin:0}
+.timer-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.timer-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.timer-row .btn{padding:0 8px}
+.timer-note{font-size:.82rem;color:var(--muted);margin:0}
+.timer-opts button{min-height:48px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:600 1rem var(--body);cursor:pointer;touch-action:manipulation}
+@media (max-width:640px){
+  .daybar{position:fixed;top:auto;bottom:0;left:0;right:0;border-bottom:0;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  [id]{scroll-margin-top:16px}
+  .timer{bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+  .today-card{padding:16px}
+  .today-actions .btn{flex:1 1 100%}
+  .session td.ex a.vid{min-height:44px}
+  header .chips{display:none}
+  header{padding-bottom:16px;gap:10px}
+  header h1{font-size:2.3rem}
+  .lede{font-size:1rem}
+  .wrap{padding-block:20px 40px;gap:36px}
+  main{gap:36px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#hoje">Pular para o treino de hoje</a>
+<nav class="daybar" aria-label="Navegação rápida">
+  <div class="daybar-in">
+    <a href="#seg" data-day="seg">Seg</a>
+    <a href="#ter" data-day="ter">Ter</a>
+    <a href="#qua" data-day="qua">Qua</a>
+    <a href="#qui" data-day="qui">Qui</a>
+    <a href="#sex" data-day="sex">Sex</a>
+    <a href="#topo" class="up" aria-label="Voltar ao topo">↑</a>
+  </div>
+</nav>
+<div class="wrap">
+
+<header id="topo">
+  <span class="eyebrow">Plano de treino de força · ciclo de 12 semanas</span>
+  <h1>Meu treino</h1>
+  <p class="lede">Musculação em casa, dividida por grupo muscular, de segunda a sexta, com sessões de 50 a 60 minutos. Cada exercício tem vídeo explicativo e níveis de dificuldade. O cronômetro de descanso fica no canto da tela.</p>
+  <div class="chips">
+    <span class="chip">Superbands vermelha, preta, roxa e verde</span>
+    <span class="chip">Kettlebell 16 kg</span>
+    <span class="chip">Par de halteres 10 kg</span>
+    <span class="chip">Peso corporal</span>
+    <span class="chip">Cadeira firme e degrau</span>
+    <span class="chip">Vídeo em cada exercício</span>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<section class="pwa-box" id="pwa-install" hidden aria-labelledby="pwa-t">
+  <h2 id="pwa-t">Instale o treino como aplicativo</h2>
+  <p>Assim ele abre pelo ícone na tela do celular, em tela cheia, e a ficha funciona mesmo sem internet.</p>
+  <ol id="pwa-steps"></ol>
+  <div class="row">
+    <button type="button" class="btn primary" id="pwa-install-btn" hidden>Instalar o app</button>
+    <button type="button" class="btn" id="pwa-later">Agora não</button>
+  </div>
+</section>
+<div class="pwa-banner off" id="pwa-offline" hidden role="status"><span><strong>Sem internet.</strong> As fichas funcionam normalmente; os vídeos precisam de conexão.</span></div>
+<div class="pwa-banner up" id="pwa-update" hidden role="status"><span><strong>Há uma versão nova do treino.</strong></span><button type="button" class="btn primary" id="pwa-update-btn">Atualizar agora</button></div>
+
+
+<section id="hoje" class="today-card" aria-labelledby="hoje-t">
+  <span class="eyebrow">Treino de hoje</span>
+  <h2 id="hoje-t">Escolha o treino do dia</h2>
+  <p id="hoje-msg">Toque no dia para abrir a ficha.</p>
+  <div class="today-actions">
+    <a class="btn primary" id="hoje-go" href="#seg">Abrir a ficha de segunda</a>
+    <button type="button" class="btn" id="wake-btn" aria-pressed="false">Manter a tela acesa</button>
+  </div>
+  <p class="wake-msg" id="wake-msg" role="status"></p>
+  <p class="pwa-status" id="pwa-status" role="status">Verificando o modo sem internet…</p>
+  <nav class="week" aria-label="Dias de treino">
+    <a class="day" href="#seg"><span class="d">Segunda</span><span class="t">Inferiores A</span><span class="g">Quadríceps, glúteos, posteriores de coxa, panturrilha e core</span></a>
+    <a class="day" href="#ter"><span class="d">Terça</span><span class="t">Superiores A</span><span class="g">Peito, costas, ombros e tríceps</span></a>
+    <a class="day pw" href="#qua"><span class="d">Quarta</span><span class="t">Potência e equilíbrio</span><span class="g">Dia moderado, corpo todo, prevenção de quedas</span></a>
+    <a class="day" href="#qui"><span class="d">Quinta</span><span class="t">Inferiores B</span><span class="g">Posteriores de coxa, glúteos, quadríceps, panturrilha e core lateral</span></a>
+    <a class="day" href="#sex"><span class="d">Sexta</span><span class="t">Superiores B</span><span class="g">Costas, ombros, bíceps, tríceps e pegada</span></a>
+  </nav>
+  <details class="precheck">
+    <summary>Antes do primeiro treino: 6 perguntas de segurança</summary>
+    <ul>
+      <li>Responder o questionário PAR-Q+ (eparmedx.com) e levar ao médico se alguma resposta for sim.</li>
+      <li>Teve alguma queda nos últimos 12 meses?</li>
+      <li>Sente dor em alguma articulação hoje, acima de 3 em 10?</li>
+      <li>Tem osteoporose, osteopenia ou já teve fratura por fragilidade? Fez densitometria?</li>
+      <li>Tem pressão alta, doença do coração, diabetes ou toma remédio que dá tontura?</li>
+      <li>Tem incontinência urinária? O impacto pode piorar; converse com uma fisioterapeuta.</li>
+    </ul>
+    <p><strong>Se a resposta for sim para qualquer pergunta, fale com o médico antes de começar e comece pelos níveis mais baixos.</strong> Veja também os <a href="#seguranca">cuidados de segurança</a>.</p>
+  </details>
+</section>
+
+<section id="treinos">
+  <span class="eyebrow">Treinos detalhados</span>
+  <h2>A semana, dia a dia</h2>
+  <p>Toque no nome do exercício para ver o vídeo e em <em>Níveis</em> para ver como deixar mais difícil. Faça os exercícios em pares (A1 e A2, depois B1 e B2) e use o cronômetro de descanso entre eles. As regras de nível estão em <a href="#sessao">Como o treino funciona</a>.</p>
+  <article class="session" id="seg">
+    <div class="session-head"><h3>Segunda · Inferiores A</h3><span class="meta">Quadríceps, glúteos, posteriores de coxa, panturrilha e core</span></div>
+    <p class="weeks"><b>Semanas:</b> As doses são das semanas 2 a 5. Semana 1: 2 séries com PSE 6 e escolha do nível inicial. Semanas 6 a 10: 6 a 10 repetições, com 4 séries em A1 e A2 e 3 séries nos demais. Semana 11: uma série a menos em tudo (mínimo 2). Se passar de 55 minutos, corte o par C naquele dia.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Exercício</th><th>Material</th><th>Séries × reps</th><th>Como fazer</th></tr></thead>
+      <tbody>
+<tr class="block"><td colspan="4">Aquecimento<span>8 min</span></td></tr>
+<tr><td class="ex"><strong>Aquecimento</strong></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">8 min</td><td class="how" data-label="Como fazer">3 min de marcha no lugar; 10 círculos de ombros, quadril e tornozelos para cada lado; 1 série leve do primeiro exercício de força.</td></tr>
+<tr class="block"><td colspan="4">Potência e equilíbrio<span>8 min</span></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=VLoukLUgqqQ">Sentar e levantar rápido</a><small>Cadeira firme, braços cruzados no peito</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 5</td><td class="how" data-label="Como fazer">Levanta o mais rápido possível e senta devagar, em 3 s. Descanso de 60 s.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Cadeira comum, sem peso</li><li>Segurando o halter de 10 kg no peito</li><li>Segurando o kettlebell de 16 kg no peito</li><li>Cadeira mais baixa com o kettlebell de 16 kg</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=eeDvLfZdyUQ">Um pé à frente do outro (tandem)</a><small>Calcanhar encostado na ponta do outro pé</small></td><td class="mat" data-label="Material">Cadeira ao lado</td><td class="dose" data-label="Séries × reps">2 × 30 s cada lado</td><td class="how" data-label="Como fazer">Mão perto da cadeira, sem apoiar.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Com a ponta dos dedos na cadeira</li><li>Sem apoio, cadeira ao alcance</li><li>Sem apoio, braços cruzados no peito</li><li>Sem apoio, virando a cabeça devagar para os lados</li><li>Sem apoio, contando de trás para frente</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Força · fazer em pares: A1 e A2, depois B1 e B2, depois C1 e C2<span>27 min</span></td></tr>
+<tr><td class="ex"><span class="pair">A1</span><a class="vid" href="https://www.youtube.com/watch?v=ge1vdJRP0UA">Agachamento goblet até a cadeira</a><small>Segura o peso junto ao peito, encosta na cadeira e sobe</small></td><td class="mat" data-label="Material">Halter 10 kg → KB 16 kg</td><td class="dose" data-label="Séries × reps">3 × 8–12</td><td class="how" data-label="Como fazer">Joelhos na direção dos pés, tronco firme.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Halter de 10 kg</li><li>Kettlebell de 16 kg</li><li>Kettlebell, descida em 4 s e pausa de 2 s embaixo</li><li>Kettlebell, 1 e ½ repetição (desce, sobe até a metade, desce de novo e sobe)</li><li>Kettlebell de 20 a 24 kg (compra opcional)</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">A2</span><a class="vid" href="https://www.youtube.com/watch?v=0loS0bRNqfs">Dead bug</a><small>Deitada, lombar apoiada no chão</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 6–8 cada lado</td><td class="how" data-label="Como fazer">Estende braço e perna opostos devagar, sem arquear as costas.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Joelhos dobrados</li><li>Perna esticada</li><li>Segurando o halter de 10 kg com os braços esticados</li><li>Halter nos braços e descida da perna em 4 s</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B1</span><a class="vid" href="https://www.youtube.com/watch?v=5cXXCjg4CD4">Afundo parado com apoio</a><small>Uma mão na parede ou na cadeira</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 8–10 cada perna</td><td class="how" data-label="Como fazer">Desce o joelho de trás até perto do chão, tronco reto.<details class="lv"><summary>Níveis 1 a 6</summary><ol><li>Peso corporal, mão na parede</li><li>Descida em 3 s e pausa embaixo</li><li>1 halter de 10 kg junto ao peito</li><li>Os dois halteres de 10 kg</li><li>Pé de trás num degrau baixo (búlgaro), peso corporal</li><li>Búlgaro com 1 halter de 10 kg junto ao peito</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B2</span><a class="vid" href="https://www.youtube.com/watch?v=FLRPQF4qoEk">Stiff com o pé de apoio atrás</a><small>Quase todo o peso na perna da frente; o pé de trás só equilibra</small></td><td class="mat" data-label="Material">Peso corporal → KB 16 kg</td><td class="dose" data-label="Séries × reps">3 × 8–10 cada perna</td><td class="how" data-label="Como fazer">Quadril vai para trás com a coluna reta. Segundo treino da semana para posteriores de coxa.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Sem peso, mão na parede</li><li>Kettlebell de 16 kg na mão do lado oposto à perna da frente</li><li>Kettlebell, descida em 4 s</li><li><a class="vid" href="https://www.youtube.com/watch?v=WySvO0gkqcU">Stiff em uma perna com kettlebell</a>, mão livre na parede</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C1</span><a class="vid" href="https://www.youtube.com/watch?v=qZRJKx_mJxk">Ponte de glúteo com kettlebell</a><small>Kettlebell sobre o quadril, com uma toalha por baixo</small></td><td class="mat" data-label="Material">KB 16 kg</td><td class="dose" data-label="Séries × reps">3 × 10–15</td><td class="how" data-label="Como fazer">Segura 2 s em cima contraindo os glúteos.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Kettlebell de 16 kg, duas pernas</li><li>Pausa de 3 s no alto</li><li><a class="vid" href="https://www.youtube.com/watch?v=4AeXJJRhkMw">Ponte em uma perna</a>, sem peso</li><li>Ponte em uma perna com o halter de 10 kg no quadril</li><li>Costas apoiadas no sofá (hip thrust) com o kettlebell de 16 kg</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C2</span><a class="vid" href="https://www.youtube.com/watch?v=T-ojMWHQgnc">Panturrilha em pé no degrau</a></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 12–15</td><td class="how" data-label="Como fazer">Movimento completo, com a mão apoiada na parede.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Duas pernas</li><li>Uma perna de cada vez</li><li>Uma perna, segurando o halter de 10 kg</li><li>Uma perna com halter e pausa de 2 s em cima e embaixo</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Ossos · opcional, só com liberação médica<span>2 min</span></td></tr>
+<tr><td class="ex"><span class="tag os">Ossos</span> <a class="vid" href="https://www.youtube.com/watch?v=tZ8gy_V6bxM">Deixar o calcanhar cair</a><small>Sobe na ponta dos pés e solta o peso sobre os calcanhares</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">2 × 10</td><td class="how" data-label="Como fazer">Opcional. É uma exposição leve a impacto: os estudos que melhoraram a densidade óssea usaram treinos supervisionados mais intensos, então esta dose não tem benefício comprovado. Só com densitometria e liberação médica. Vídeo em inglês, com demonstração clara.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>2 × 10</li><li>3 × 10</li><li>Pequenos saltos no lugar, 2 × 10 (somente com liberação médica)</li><li>Pequenos saltos no lugar, 3 × 10</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Volta à calma<span>5 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=4sEq7OYYee0">Alongamento de quadríceps em pé</a></td><td class="mat" data-label="Material">Parede ou cadeira</td><td class="dose" data-label="Séries × reps">30 s cada perna</td><td class="how" data-label="Como fazer">Respiração lenta.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=zWKZO-SSIic">Alongamento de panturrilha na parede</a></td><td class="mat" data-label="Material">Parede</td><td class="dose" data-label="Séries × reps">30 s cada perna</td><td class="how" data-label="Como fazer">Calcanhar de trás no chão.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=UxxZtfqDp9w">Alongamento de posterior de coxa na cadeira</a></td><td class="mat" data-label="Material">Cadeira</td><td class="dose" data-label="Séries × reps">30 s cada perna</td><td class="how" data-label="Como fazer">Coluna reta, inclina o tronco à frente.</td></tr>
+      </tbody>
+    </table></div>
+  </article>
+
+  <article class="session" id="ter">
+    <div class="session-head"><h3>Terça · Superiores A</h3><span class="meta">Peito, costas, ombros e tríceps</span></div>
+    <p class="weeks"><b>Semanas:</b> As doses são das semanas 2 a 5. Semana 1: 2 séries com PSE 6 e escolha do nível inicial. Semanas 6 a 10: 6 a 10 repetições, com 4 séries em A1 e A2 e 3 séries nos demais. Semana 11: uma série a menos em tudo (mínimo 2). Se passar de 55 minutos, corte o par C naquele dia.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Exercício</th><th>Material</th><th>Séries × reps</th><th>Como fazer</th></tr></thead>
+      <tbody>
+<tr class="block"><td colspan="4">Aquecimento<span>8 min</span></td></tr>
+<tr><td class="ex"><strong>Aquecimento</strong></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">8 min</td><td class="how" data-label="Como fazer">3 min de marcha no lugar; 10 círculos de ombros, quadril e tornozelos para cada lado; 1 série leve do primeiro exercício de força.</td></tr>
+<tr class="block"><td colspan="4">Potência e equilíbrio<span>8 min</span></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=TPcNTUGVKXc">Flexão de braço na parede, subida rápida</a></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 6</td><td class="how" data-label="Como fazer">Empurra rápido e desce em 3 s.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Mãos na parede</li><li>Mãos na bancada da cozinha</li><li>Mãos numa cadeira firme encostada na parede</li><li>No chão, com joelhos apoiados</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=iHWfNn1oBew">Equilíbrio em uma perna</a><small>Ponta dos dedos na cadeira, depois sem apoio</small></td><td class="mat" data-label="Material">Cadeira ao lado</td><td class="dose" data-label="Séries × reps">2 × 20–30 s cada perna</td><td class="how" data-label="Como fazer">Meta: 30 s sem apoio.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Com a ponta dos dedos na cadeira</li><li>Sem apoio, cadeira ao alcance</li><li>Sem apoio, braços cruzados no peito</li><li>Sem apoio, virando a cabeça devagar para os lados</li><li>Sem apoio, contando de trás para frente</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Força · em pares<span>27 min</span></td></tr>
+<tr><td class="ex"><span class="pair">A1</span><a class="vid" href="https://www.youtube.com/watch?v=HbH16qlPw7U">Supino no chão com halteres</a><small>Deitada, cotovelos a 45° do tronco</small></td><td class="mat" data-label="Material">Halteres 10 kg</td><td class="dose" data-label="Séries × reps">3 × 8–12</td><td class="how" data-label="Como fazer">Se 10 kg estiver pesado, use 1 halter com as duas mãos.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Halteres de 10 kg</li><li>Descida em 4 s</li><li>Pausa de 2 s com os cotovelos no chão</li><li>Halteres e faixa vermelha passada pelas costas, presa nas mãos</li><li>Flexão de braço no chão, com joelhos ou pés apoiados</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">A2</span><a class="vid" href="https://www.youtube.com/watch?v=E008-XIJBEk">Remada unilateral com halter</a><small>Mão e joelho apoiados na cadeira ou banco</small></td><td class="mat" data-label="Material">Halter 10 kg</td><td class="dose" data-label="Séries × reps">3 × 10–12 cada lado</td><td class="how" data-label="Como fazer">Puxa o cotovelo em direção ao quadril, coluna reta.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Halter de 10 kg</li><li>Pausa de 2 s no alto</li><li>Kettlebell de 16 kg</li><li>Kettlebell de 16 kg, descida em 4 s</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B1</span><a class="vid" href="https://www.youtube.com/watch?v=7UrcwLK-Xqw">Desenvolvimento sentada com elástico</a><small>Faixa sob os pés, empurrar acima da cabeça</small></td><td class="mat" data-label="Material">Faixa vermelha</td><td class="dose" data-label="Séries × reps">3 × 8–12</td><td class="how" data-label="Como fazer">Comece com um braço de cada vez: a superband já parte com bastante tensão.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Faixa vermelha, um braço de cada vez</li><li>Faixa vermelha, dois braços</li><li>Faixa vermelha, descida em 3 s</li><li>Faixa preta, um braço de cada vez</li><li>Halter de 10 kg, um braço, sentada, só com técnica perfeita</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B2</span><a class="vid" href="https://www.youtube.com/watch?v=fAC_fEJwC5E">Puxada alta com elástico</a><small>Faixa presa em laço no armador de rede, acima da cabeça</small></td><td class="mat" data-label="Material">Faixa preta + armador de rede</td><td class="dose" data-label="Séries × reps">3 × 10–15</td><td class="how" data-label="Como fazer">Puxa os cotovelos para baixo e para trás, peito aberto. Se o armador estiver baixo, faça ajoelhada.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa preta</li><li>Faixa preta, pausa de 2 s embaixo</li><li>Faixa roxa</li><li>Faixa roxa, um braço de cada vez</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C1</span><a class="vid" href="https://www.youtube.com/watch?v=Xua6bDZCIF8">Tríceps no elástico (pulley)</a><small>Faixa presa em laço no armador de rede</small></td><td class="mat" data-label="Material">Faixa vermelha + armador de rede</td><td class="dose" data-label="Séries × reps">2–3 × 12–15</td><td class="how" data-label="Como fazer">Cotovelos colados ao corpo. Se estiver pesado, dê um passo em direção à parede.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa vermelha</li><li>Faixa vermelha, um passo mais longe da parede</li><li>Faixa preta</li><li>Faixa preta, um braço de cada vez</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C2</span><a class="vid" href="https://www.youtube.com/watch?v=C8A8c-3j9cc">Face pull com elástico</a><small>Puxa em direção ao rosto, abrindo os braços</small></td><td class="mat" data-label="Material">Faixa vermelha + armador de rede</td><td class="dose" data-label="Séries × reps">2–3 × 12–15</td><td class="how" data-label="Como fazer">Com o armador acima da cabeça, dê um passo para trás para a faixa ficar inclinada. Trabalha a postura e a parte de trás dos ombros.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa vermelha</li><li>Faixa vermelha, pausa de 2 s com os braços abertos</li><li>Faixa preta</li><li>Faixa preta com pausa de 2 s</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Core<span>4 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=Ougi3wD8Vbg">Prancha inclinada na bancada</a><small>Mãos na bancada, corpo reto do calcanhar à cabeça</small></td><td class="mat" data-label="Material">Bancada ou mesa firme</td><td class="dose" data-label="Séries × reps">3 × 20–30 s</td><td class="how" data-label="Como fazer">Sem deixar o quadril cair ou subir. Respiração normal.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Mãos na bancada, 20 a 30 s</li><li>Bancada, 45 s</li><li>Mãos numa cadeira firme encostada na parede, 30 s</li><li>Antebraços no chão com joelhos apoiados, 30 s</li><li>Antebraços no chão com os pés, 20 a 30 s</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Volta à calma<span>5 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=hcs-MHd1Z98">Alongamento de peitoral na parede</a></td><td class="mat" data-label="Material">Parede</td><td class="dose" data-label="Séries × reps">30 s cada lado</td><td class="how" data-label="Como fazer">Antebraço na parede, gira o corpo devagar para o lado oposto.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=06jScYmxfdM">Alongamento de tríceps em pé</a></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">30 s cada braço</td><td class="how" data-label="Como fazer">Sem forçar o pescoço para a frente.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=OrQVTLwL1J0">Alongamento de ombro com o braço cruzado</a></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">30 s cada braço</td><td class="how" data-label="Como fazer">Puxa o braço junto ao peito com a outra mão, ombro baixo.</td></tr>
+      </tbody>
+    </table></div>
+  </article>
+
+  <article class="session" id="qua">
+    <div class="session-head"><h3>Quarta · Potência e equilíbrio</h3><span class="meta">Dia moderado, corpo todo, prevenção de quedas</span></div>
+    <p class="weeks"><b>Semanas:</b> Semana 1 e semana 11: 2 voltas em cada circuito. Semanas 2 a 10: as voltas indicadas. É um dia mais leve: na potência, suba de nível só se a velocidade continuar alta, e sem cansar as pernas para o treino de quinta.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Exercício</th><th>Material</th><th>Séries × reps</th><th>Como fazer</th></tr></thead>
+      <tbody>
+<tr class="block"><td colspan="4">Aquecimento<span>8 min</span></td></tr>
+<tr><td class="ex"><strong>Aquecimento</strong></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">8 min</td><td class="how" data-label="Como fazer">3 min de marcha no lugar; 10 círculos de ombros, quadril e tornozelos para cada lado; 1 série leve do primeiro exercício de força.</td></tr>
+<tr class="block"><td colspan="4">Circuito 1 · Potência · 3 voltas, 60–90 s de descanso entre voltas<span>10 min</span></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=VLoukLUgqqQ">Sentar e levantar rápido</a></td><td class="mat" data-label="Material">Cadeira</td><td class="dose" data-label="Séries × reps">5</td><td class="how" data-label="Como fazer">Cada repetição rápida e bem feita.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Cadeira comum, sem peso</li><li>Segurando o halter de 10 kg no peito</li><li>Segurando o kettlebell de 16 kg no peito</li><li>Cadeira mais baixa com o kettlebell de 16 kg</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=grHSCgA22ts">Remada curvada com elástico, puxada rápida</a><small>Faixa sob os pés, tronco inclinado à frente, coluna reta</small></td><td class="mat" data-label="Material">Faixa preta</td><td class="dose" data-label="Séries × reps">6</td><td class="how" data-label="Como fazer">Puxa rápido, volta devagar.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa preta</li><li>Faixa preta, pegando a faixa mais curta</li><li>Faixa roxa</li><li>Faixa roxa, pegando a faixa mais curta</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=6-86jEAXA08">Supino em pé com a faixa nas costas, empurrão rápido</a><small>Faixa passando pelas costas, na altura das axilas</small></td><td class="mat" data-label="Material">Faixa vermelha</td><td class="dose" data-label="Séries × reps">6</td><td class="how" data-label="Como fazer">Um pé à frente do outro para ter estabilidade. Vídeo em inglês, com demonstração clara.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa vermelha</li><li>Faixa vermelha, pegando a faixa mais curta</li><li>Faixa preta</li><li>Faixa preta, um braço de cada vez</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Circuito 2 · Equilíbrio em movimento · 2–3 voltas<span>12 min</span></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=Zf7k5qgXm4I">Andar em linha reta, calcanhar na ponta do pé</a></td><td class="mat" data-label="Material">Corredor</td><td class="dose" data-label="Séries × reps">3–5 m ida e volta</td><td class="how" data-label="Como fazer">Perto da parede.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Perto da parede</li><li>No meio do corredor, mãos livres</li><li>Virando a cabeça para os lados</li><li>Segurando um copo de água</li><li>Contando de trás para frente</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=YoTGcAobBxg">Passos laterais em semiagachamento</a></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">10 cada lado</td><td class="how" data-label="Como fazer">Joelhos levemente dobrados, pés paralelos. O vídeo usa mini band; sem ela, o movimento é o mesmo.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Sem faixa</li><li>Agachamento mais baixo</li><li>Segurando o halter de 10 kg no peito</li><li>Mini band acima dos joelhos (compra opcional)</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=P8eQtWWKBUM">Relógio: alcançar com o pé em várias direções</a><small>Em uma perna, toca o chão à frente, ao lado e atrás</small></td><td class="mat" data-label="Material">Cadeira ao lado</td><td class="dose" data-label="Séries × reps">5 cada perna</td><td class="how" data-label="Como fazer">Movimento lento e controlado.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Alcance curto, mão perto da cadeira</li><li>Alcance longo</li><li>Sem a mão perto da cadeira</li><li>Contando de trás para frente</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Circuito 3 · Funcional · 2–3 voltas<span>12 min</span></td></tr>
+<tr><td class="ex"><span class="tag fo">Funcional</span> <a class="vid" href="https://www.youtube.com/watch?v=Ur6qEiGLr2g">Levantar do chão</a><small>Sentar no chão e voltar a ficar em pé</small></td><td class="mat" data-label="Material">Colchonete + cadeira</td><td class="dose" data-label="Séries × reps">3–5</td><td class="how" data-label="Como fazer">Habilidade importante em caso de queda. Comece usando a cadeira.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Com apoio da cadeira</li><li>Sem a cadeira, usando as duas mãos</li><li>Usando uma mão só</li><li>Sem usar as mãos</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag fo">Funcional</span> <a class="vid" href="https://www.youtube.com/watch?v=ooY6pF0H1BA">Caminhada do fazendeiro</a></td><td class="mat" data-label="Material">Halteres 10 kg</td><td class="dose" data-label="Séries × reps">30–40 s</td><td class="how" data-label="Como fazer">Postura alta, passos curtos.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Halteres de 10 kg, 30 a 40 s</li><li>60 s</li><li>Na ponta dos pés, 30 s</li><li>Kettlebell de 16 kg numa mão e halter de 10 kg na outra, trocando de lado na volta</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag os">Ossos</span> <a class="vid" href="https://www.youtube.com/watch?v=tZ8gy_V6bxM">Deixar o calcanhar cair</a><small>Sobe na ponta dos pés e solta o peso sobre os calcanhares</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">10</td><td class="how" data-label="Como fazer">Opcional. É uma exposição leve a impacto: os estudos que melhoraram a densidade óssea usaram treinos supervisionados mais intensos, então esta dose não tem benefício comprovado. Só com densitometria e liberação médica. Vídeo em inglês, com demonstração clara.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>2 × 10</li><li>3 × 10</li><li>Pequenos saltos no lugar, 2 × 10 (somente com liberação médica)</li><li>Pequenos saltos no lugar, 3 × 10</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Mobilidade e volta à calma<span>8 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=fQy4REtRN8g">Rotação de tronco em quatro apoios</a></td><td class="mat" data-label="Material">Colchonete</td><td class="dose" data-label="Séries × reps">2 × 8 cada lado</td><td class="how" data-label="Como fazer">Mão na nuca, gira o tronco abrindo o cotovelo para o teto. Movimento lento.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=I53HmrTOE0Q">Mobilidade de tornozelo com o joelho na parede</a></td><td class="mat" data-label="Material">Parede</td><td class="dose" data-label="Séries × reps">2 × 10 cada perna</td><td class="how" data-label="Como fazer">Leva o joelho em direção à parede sem tirar o calcanhar do chão.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=b3qf3YzFgmU">Círculos de quadril em pé</a></td><td class="mat" data-label="Material">Cadeira para apoio</td><td class="dose" data-label="Séries × reps">2 × 8 cada lado</td><td class="how" data-label="Como fazer">Com a mão na cadeira, desenha círculos amplos com o joelho, sem dor.</td></tr>
+      </tbody>
+    </table></div>
+  </article>
+
+  <article class="session" id="qui">
+    <div class="session-head"><h3>Quinta · Inferiores B</h3><span class="meta">Posteriores de coxa, glúteos, quadríceps, panturrilha e core lateral</span></div>
+    <p class="weeks"><b>Semanas:</b> As doses são das semanas 2 a 5. Semana 1: 2 séries com PSE 6 e escolha do nível inicial. Semanas 6 a 10: 6 a 10 repetições, com 4 séries em A1 e A2 e 3 séries nos demais. Semana 11: uma série a menos em tudo (mínimo 2). Se passar de 55 minutos, corte o par C naquele dia.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Exercício</th><th>Material</th><th>Séries × reps</th><th>Como fazer</th></tr></thead>
+      <tbody>
+<tr class="block"><td colspan="4">Aquecimento<span>8 min</span></td></tr>
+<tr><td class="ex"><strong>Aquecimento</strong></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">8 min</td><td class="how" data-label="Como fazer">3 min de marcha no lugar; 10 círculos de ombros, quadril e tornozelos para cada lado; 1 série leve do primeiro exercício de força.</td></tr>
+<tr class="block"><td colspan="4">Potência e equilíbrio<span>8 min</span></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=UU4IdhzZA5w">Subida rápida no degrau</a></td><td class="mat" data-label="Material">Degrau 15–20 cm</td><td class="dose" data-label="Séries × reps">3 × 5 cada perna</td><td class="how" data-label="Como fazer">Sobe rápido, desce devagar, com apoio de mão se precisar.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Degrau de 15 a 20 cm</li><li>Degrau de 25 a 30 cm</li><li>Degrau baixo, segurando 1 halter de 10 kg junto ao peito</li><li>Degrau baixo, com os dois halteres de 10 kg</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=i9Qt-ZfJvkY">Equilíbrio em uma perna com movimento de braços</a></td><td class="mat" data-label="Material">Cadeira ao lado</td><td class="dose" data-label="Séries × reps">2 × 20–30 s cada perna</td><td class="how" data-label="Como fazer">Braços desenham um arco à frente e ao lado. Vídeo em inglês, só demonstração.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Braços em arco, ponta dos dedos na cadeira</li><li>Sem apoio</li><li>Segurando uma garrafa de 1 L, passando de uma mão para a outra</li><li>Acompanhando a garrafa com a cabeça</li><li>Contando de trás para frente</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Força · em pares<span>27 min</span></td></tr>
+<tr><td class="ex"><span class="pair">A1</span><a class="vid" href="https://www.youtube.com/watch?v=DCyJiVayTrw">Levantamento terra com kettlebell</a><small>KB entre os pés, quadril vai para trás, coluna reta</small></td><td class="mat" data-label="Material">KB 16 kg</td><td class="dose" data-label="Séries × reps">3 × 8–10</td><td class="how" data-label="Como fazer">Exercício principal do dia. Se precisar, apoie o KB sobre um degrau.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Kettlebell de 16 kg</li><li>Descida em 4 s e pausa de 2 s em pé</li><li>1 e ½ repetição</li><li><a class="vid" href="https://www.youtube.com/watch?v=WySvO0gkqcU">Stiff em uma perna com kettlebell</a>, mão livre na parede</li><li>Kettlebell de 20 a 24 kg (compra opcional)</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">A2</span><a class="vid" href="https://www.youtube.com/watch?v=Nm8onc8ndVw">Perdigueiro</a></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 6–8 cada lado</td><td class="how" data-label="Como fazer">Braço e perna opostos, segura 2 s.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Segura 2 s</li><li>Segura 5 s</li><li>Cotovelo encosta no joelho embaixo, entre as repetições</li><li>Joelhos 2 cm acima do chão durante a série</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B1</span><a class="vid" href="https://www.youtube.com/watch?v=cETLf4xXYCQ">Stiff com halteres</a></td><td class="mat" data-label="Material">Halteres 10 kg</td><td class="dose" data-label="Séries × reps">3 × 8–12</td><td class="how" data-label="Como fazer">Joelhos levemente dobrados, sente alongar atrás da coxa.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Halteres de 10 kg</li><li>Descida em 4 s e pausa embaixo</li><li><a class="vid" href="https://www.youtube.com/watch?v=FLRPQF4qoEk">Pé de apoio atrás</a> com 1 halter</li><li>Pé de apoio atrás com os dois halteres</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B2</span><a class="vid" href="https://www.youtube.com/watch?v=0kujan6jlAc">Prancha lateral com joelhos apoiados</a></td><td class="mat" data-label="Material">Colchonete</td><td class="dose" data-label="Séries × reps">3 × 15–30 s cada lado</td><td class="how" data-label="Como fazer">Quadril alinhado.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Joelhos, 15 a 30 s</li><li>Joelhos, 45 s</li><li>Pés apoiados, 20 a 30 s</li><li>Pés apoiados, erguendo a perna de cima</li><li>Pés apoiados, 45 s</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C1</span><a class="vid" href="https://www.youtube.com/watch?v=KCu2QHbnIZE">Subida no degrau com halteres</a></td><td class="mat" data-label="Material">Degrau 20–30 cm + halteres</td><td class="dose" data-label="Séries × reps">3 × 8–10 cada perna</td><td class="how" data-label="Como fazer">Segundo treino da semana para quadríceps.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Degrau de 20 cm com os halteres</li><li>Descida em 3 s</li><li>Degrau de 30 cm sem peso</li><li>Degrau de 30 cm com 1 halter de 10 kg</li><li>Degrau de 30 cm com os dois halteres</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C2</span><a class="vid" href="https://www.youtube.com/watch?v=kFLQnSYALCc">Flexão de joelho com toalha no chão</a><small>Deitada de costas, calcanhares sobre uma toalha num piso liso</small></td><td class="mat" data-label="Material">Toalha + piso liso</td><td class="dose" data-label="Séries × reps">3 × 8–12</td><td class="how" data-label="Como fazer">Puxa os calcanhares em direção ao glúteo e volta devagar. Não precisa de âncora.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Quadril no chão, só deslizando os pés</li><li>Quadril elevado durante a série</li><li>Volta em 4 s</li><li>Uma perna de cada vez, a outra no alto</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Panturrilha e ossos<span>4 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=P21ap3jlKWM">Panturrilha em uma perna no degrau</a></td><td class="mat" data-label="Material">Degrau + parede</td><td class="dose" data-label="Séries × reps">2 × 10–15 cada perna</td><td class="how" data-label="Como fazer">Segundo treino da semana para panturrilha e tornozelo.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Uma perna, sem peso</li><li>Segurando o halter de 10 kg</li><li>Halter e pausa de 2 s em cima e embaixo</li><li>Segurando o kettlebell de 16 kg</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag os">Ossos</span> <a class="vid" href="https://www.youtube.com/watch?v=tZ8gy_V6bxM">Deixar o calcanhar cair</a><small>Sobe na ponta dos pés e solta o peso sobre os calcanhares</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">2 × 10</td><td class="how" data-label="Como fazer">Opcional. É uma exposição leve a impacto: os estudos que melhoraram a densidade óssea usaram treinos supervisionados mais intensos, então esta dose não tem benefício comprovado. Só com densitometria e liberação médica. Vídeo em inglês, com demonstração clara.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>2 × 10</li><li>3 × 10</li><li>Pequenos saltos no lugar, 2 × 10 (somente com liberação médica)</li><li>Pequenos saltos no lugar, 3 × 10</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Volta à calma<span>5 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=UxxZtfqDp9w">Alongamento de posterior de coxa na cadeira</a></td><td class="mat" data-label="Material">Cadeira</td><td class="dose" data-label="Séries × reps">30 s cada perna</td><td class="how" data-label="Como fazer">Coluna reta.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=2tTnKyvS_zU">Alongamento de glúteo sentada na cadeira</a></td><td class="mat" data-label="Material">Cadeira</td><td class="dose" data-label="Séries × reps">30 s cada lado</td><td class="how" data-label="Como fazer">Tornozelo sobre o joelho oposto, inclina o tronco à frente.</td></tr>
+      </tbody>
+    </table></div>
+  </article>
+
+  <article class="session" id="sex">
+    <div class="session-head"><h3>Sexta · Superiores B</h3><span class="meta">Costas, ombros, bíceps, tríceps e pegada</span></div>
+    <p class="weeks"><b>Semanas:</b> As doses são das semanas 2 a 5. Semana 1: 2 séries com PSE 6 e escolha do nível inicial. Semanas 6 a 10: 6 a 10 repetições, com 4 séries em A1 e A2 e 3 séries nos demais. Semana 11: uma série a menos em tudo (mínimo 2). Se passar de 55 minutos, corte o par C naquele dia.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Exercício</th><th>Material</th><th>Séries × reps</th><th>Como fazer</th></tr></thead>
+      <tbody>
+<tr class="block"><td colspan="4">Aquecimento<span>8 min</span></td></tr>
+<tr><td class="ex"><strong>Aquecimento</strong></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">8 min</td><td class="how" data-label="Como fazer">3 min de marcha no lugar; 10 círculos de ombros, quadril e tornozelos para cada lado; 1 série leve do primeiro exercício de força.</td></tr>
+<tr class="block"><td colspan="4">Potência e equilíbrio<span>8 min</span></td></tr>
+<tr><td class="ex"><span class="tag pw">Potência</span> <a class="vid" href="https://www.youtube.com/watch?v=6-86jEAXA08">Supino em pé com a faixa nas costas, empurrão rápido</a><small>Faixa passando pelas costas, na altura das axilas</small></td><td class="mat" data-label="Material">Faixa vermelha</td><td class="dose" data-label="Séries × reps">3 × 6</td><td class="how" data-label="Como fazer">Em pé, um pé à frente do outro.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa vermelha</li><li>Faixa vermelha, pegando a faixa mais curta</li><li>Faixa preta</li><li>Faixa preta, um braço de cada vez</li></ol></details></td></tr>
+<tr><td class="ex"><span class="tag eq">Equilíbrio</span> <a class="vid" href="https://www.youtube.com/watch?v=Zf7k5qgXm4I">Andar em linha reta, calcanhar na ponta do pé</a></td><td class="mat" data-label="Material">Corredor</td><td class="dose" data-label="Séries × reps">3 × 3–5 m</td><td class="how" data-label="Como fazer">Perto da parede.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Perto da parede</li><li>No meio do corredor, mãos livres</li><li>Virando a cabeça para os lados</li><li>Segurando um copo de água</li><li>Contando de trás para frente</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Força · em pares<span>27 min</span></td></tr>
+<tr><td class="ex"><span class="pair">A1</span><a class="vid" href="https://www.youtube.com/watch?v=_jvlCBEm-1U">Remada unilateral com kettlebell</a></td><td class="mat" data-label="Material">KB 16 kg</td><td class="dose" data-label="Séries × reps">3 × 8–12 cada lado</td><td class="how" data-label="Como fazer">Carga maior que na terça para variar o estímulo.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Kettlebell de 16 kg</li><li>Pausa de 2 s no alto</li><li>Descida em 4 s</li><li>1 e ½ repetição</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">A2</span><a class="vid" href="https://www.youtube.com/watch?v=COpDKiH4byU">Flexão de braço inclinada</a><small>Mãos na bancada; com o tempo, numa superfície mais baixa</small></td><td class="mat" data-label="Material">Peso corporal</td><td class="dose" data-label="Séries × reps">3 × 6–12</td><td class="how" data-label="Como fazer">Corpo em linha reta, do calcanhar à cabeça.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Mãos na bancada</li><li>Mãos numa cadeira firme encostada na parede</li><li>No chão, com joelhos apoiados</li><li>No chão, com os pés</li><li>No chão, descida em 3 s</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B1</span><a class="vid" href="https://www.youtube.com/watch?v=fAC_fEJwC5E">Puxada com elástico, ajoelhada</a><small>Faixa presa em laço no armador de rede</small></td><td class="mat" data-label="Material">Faixa preta + armador de rede</td><td class="dose" data-label="Séries × reps">3 × 10–15</td><td class="how" data-label="Como fazer">Pode fazer um braço de cada vez.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa preta</li><li>Faixa preta, um braço de cada vez</li><li>Faixa roxa</li><li>Faixa roxa, um braço de cada vez</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">B2</span><a class="vid" href="https://www.youtube.com/watch?v=2OhRe-RHrYo">Elevação lateral com elástico, um braço de cada vez</a><small>Faixa sob um pé, com folga no início</small></td><td class="mat" data-label="Material">Faixa vermelha ou garrafas de água</td><td class="dose" data-label="Séries × reps">3 × 12–15 cada lado</td><td class="how" data-label="Como fazer">Até a altura dos ombros, sem encolher o pescoço. Se a faixa estiver pesada, use garrafas de 500 ml a 1 L.<details class="lv"><summary>Níveis 1 a 5</summary><ol><li>Garrafas de água ou faixa vermelha com folga</li><li>Faixa vermelha sem folga</li><li>Faixa vermelha, dois braços</li><li>Pausa de 2 s no alto</li><li>Halteres de 2 a 3 kg (compra opcional)</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C1</span><a class="vid" href="https://www.youtube.com/watch?v=OnNmaG_tZM4">Rosca martelo alternada</a></td><td class="mat" data-label="Material">Faixa vermelha</td><td class="dose" data-label="Séries × reps">2–3 × 8–12</td><td class="how" data-label="Como fazer">Faixa sob os pés, segurando com folga para reduzir a tensão.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa vermelha com folga</li><li>Faixa vermelha sem folga</li><li>Faixa preta com folga</li><li>Halter de 10 kg, alternado, só com técnica perfeita</li></ol></details></td></tr>
+<tr><td class="ex"><span class="pair">C2</span><a class="vid" href="https://www.youtube.com/watch?v=lId7IQLIV5U">Tríceps francês com elástico</a></td><td class="mat" data-label="Material">Faixa vermelha</td><td class="dose" data-label="Séries × reps">2–3 × 12–15</td><td class="how" data-label="Como fazer">Faixa presa sob o pé de trás, cotovelos apontando para cima. Segure com mais folga se estiver pesado.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Faixa vermelha com folga</li><li>Faixa vermelha sem folga</li><li>Faixa preta com folga</li><li>Halter de 10 kg seguro com as duas mãos</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Carregamento<span>4 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=mTIndb7c1i4">Caminhada com peso de um lado (mala)</a></td><td class="mat" data-label="Material">KB 16 kg</td><td class="dose" data-label="Séries × reps">2 × 20–30 m cada lado</td><td class="how" data-label="Como fazer">Tronco reto, sem inclinar para o lado do peso.<details class="lv"><summary>Níveis 1 a 4</summary><ol><li>Kettlebell de 16 kg, 20 a 30 m</li><li>40 m</li><li>Kettlebell junto ao ombro (posição de rack), 20 m</li><li>Kettlebell junto ao ombro, 40 m</li></ol></details></td></tr>
+<tr class="block"><td colspan="4">Volta à calma<span>5 min</span></td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=hcs-MHd1Z98">Alongamento de peitoral na parede</a></td><td class="mat" data-label="Material">Parede</td><td class="dose" data-label="Séries × reps">30 s cada lado</td><td class="how" data-label="Como fazer">Antebraço na parede, gira o corpo devagar para o lado oposto.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=06jScYmxfdM">Alongamento de tríceps em pé</a></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">30 s cada braço</td><td class="how" data-label="Como fazer">Sem forçar o pescoço para a frente.</td></tr>
+<tr><td class="ex"><a class="vid" href="https://www.youtube.com/watch?v=OrQVTLwL1J0">Alongamento de ombro com o braço cruzado</a></td><td class="mat" data-label="Material">—</td><td class="dose" data-label="Séries × reps">30 s cada braço</td><td class="how" data-label="Como fazer">Puxa o braço junto ao peito com a outra mão, ombro baixo.</td></tr>
+      </tbody>
+    </table></div>
+  </article>
+</section>
+
+<section id="sessao">
+  <span class="eyebrow">Como o treino funciona</span>
+  <h2>Estrutura de cada sessão</h2>
+  <div class="timeline">
+    <div style="flex:9"><b>8–10 min</b>Aquecimento: marcha, círculos de ombros, quadril e tornozelos, 1 série leve do 1º exercício</div>
+    <div style="flex:8"><b>8 min</b>Potência + equilíbrio, com o corpo descansado</div>
+    <div style="flex:27"><b>25–30 min</b>Força em 3 pares (bi-set), alternando 2 exercícios que não competem</div>
+    <div style="flex:5"><b>5 min</b>Volta à calma</div>
+  </div>
+  <div class="legend">
+    <span><span class="tag pw">Potência</span> subida o mais rápido possível com controle</span>
+    <span><span class="tag eq">Equilíbrio</span> cadeira ou parede ao alcance</span>
+    <span><span class="tag fo">Funcional</span> tarefas do dia a dia</span>
+    <span><span class="tag os">Ossos</span> opcional, só com liberação médica</span>
+  </div>
+  <p><strong>Vídeos:</strong> toque no nome de cada exercício para abrir o vídeo no YouTube. Puxadas, tríceps pulley e face pull usam o armador de rede como âncora (veja <a href="#faixas">as faixas elásticas</a>); os demais exercícios não precisam de âncora.</p>
+  <p><strong>Pares:</strong> faça A1, descanse cerca de 45 s, faça A2, descanse cerca de 45 s e repita até completar as séries. Depois passe para o par B.</p>
+  <p><strong>Doses:</strong> as fichas mostram as semanas 2 a 5. Cada dia traz o ajuste das outras semanas.</p>
+  <h3>Níveis de progressão</h3>
+  <p>Cada exercício tem níveis de dificuldade. Toque em <em>Níveis</em> na ficha para ver a lista. O nível 1 é a versão da ficha.</p>
+  <ul class="ev">
+    <li>Na semana 1, teste cada exercício e escolha o nível inicial: aquele em que ela faz o topo da faixa de repetições com 2 a 3 sobrando (PSE 7). Com o histórico de academia dela, muitos exercícios devem começar no nível 2 ou 3.</li>
+    <li>Suba de nível quando fizer o máximo de repetições em todas as séries, com 2 ou mais sobrando, por dois treinos seguidos. Ao subir, volte para o início da faixa de repetições.</li>
+    <li>Volume: nas semanas 6 a 10, faça 4 séries nos exercícios A1 e A2; os demais continuam com 3.</li>
+    <li>Se o nível novo ficar pesado demais (menos de 6 repetições com boa técnica, ou dor), volte um nível.</li>
+    <li>Nos exercícios de potência, suba de nível só se a velocidade continuar alta. Nos de equilíbrio, quando mantiver a posição com segurança por 30 s em dois treinos seguidos.</li>
+  </ul>
+</section>
+
+<section id="faixas">
+  <span class="eyebrow">Equipamento</span>
+  <h2>As faixas elásticas dela</h2>
+  <p>O plano usa as 4 superbands que ela tem. A cor inicial de cada exercício aparece na coluna Material, e os níveis indicam quando passar para a próxima cor.</p>
+  <div class="tbl"><table class="plain"><thead><tr><th>Cor</th><th>Resistência</th><th>Uso no plano</th></tr></thead><tbody><tr><td class="b first" data-label="Cor">Vermelha</td><td data-label="Resistência">A mais leve</td><td data-label="Uso no plano">Elevação lateral, desenvolvimento, rosca, tríceps, face pull e supino em pé com a faixa nas costas</td></tr><tr><td class="b first" data-label="Cor">Preta</td><td data-label="Resistência">Leve a média</td><td data-label="Uso no plano">Puxada alta, puxada ajoelhada e remada curvada; evolução dos exercícios da vermelha</td></tr><tr><td class="b first" data-label="Cor">Roxa</td><td data-label="Resistência">Média a forte</td><td data-label="Uso no plano">Evolução da puxada e da remada, nas semanas 6 a 10</td></tr><tr><td class="b first" data-label="Cor">Verde</td><td data-label="Resistência">A mais forte</td><td data-label="Uso no plano">Não é usada neste ciclo</td></tr></tbody></table></div>
+  <ul class="ev">
+    <li>A carga de cada cor muda conforme o fabricante: confira a etiqueta da embalagem.</li>
+    <li>Armador de rede: a puxada alta, a puxada ajoelhada, o tríceps pulley e o face pull usam o armador como âncora. Passe a faixa em volta do gancho e por dentro dela mesma, em laço, para que fique travada e não escape pela ponta aberta. Antes do primeiro uso, puxe com força para conferir se o armador está firme (parafusado com bucha na alvenaria).</li>
+    <li>Os demais exercícios com faixa não precisam de âncora. Nunca prenda a faixa em maçaneta ou em móvel leve.</li>
+    <li>Para diminuir a tensão sem trocar de cor: fique mais perto do armador ou segure a faixa com mais folga. Para aumentar: o contrário.</li>
+    <li>Se não conseguir 8 repetições com técnica boa, reduza a tensão ou volte uma cor. Se fizer 15 com folga, avance para a próxima cor.</li>
+    <li>Volte sempre devagar: a superband solta de repente pode chicotear. Confira se há rachaduras antes de usar.</li>
+  </ul>
+</section>
+
+<section id="equilibrio">
+  <span class="eyebrow">Progressão do equilíbrio</span>
+  <h2>Escada do equilíbrio</h2>
+  <p>Use nos exercícios marcados como Equilíbrio. Suba um degrau quando conseguir manter a posição por 30 s com segurança, em dois treinos seguidos. Em qualquer degrau, a cadeira fica ao alcance da mão.</p>
+  <ol class="steps">
+    <li><strong>Com apoio:</strong> Ponta dos dedos na cadeira ou parede.</li>
+    <li><strong>Sem apoio:</strong> Mãos livres, cadeira ao alcance.</li>
+    <li><strong>Base mais estreita:</strong> Pés mais próximos ou braços cruzados no peito.</li>
+    <li><strong>Movimento de cabeça:</strong> Virando a cabeça devagar para os lados.</li>
+    <li><strong>Tarefa dupla:</strong> Contando de trás para frente ou nomeando objetos.</li>
+  </ol>
+  <div class="note warn"><p>Olhos fechados e superfície macia (almofada) só com outra pessoa ao lado. Treinando sozinha, mantenha os olhos abertos e o chão firme.</p></div>
+  <p>Exemplos de tarefa dupla: <a class="vid" href="https://www.youtube.com/watch?v=7ECfmU3q5T0">exercícios de dupla tarefa para idosos</a>.</p>
+</section>
+
+<section id="dia-dificil">
+  <span class="eyebrow">Plano B</span>
+  <h2>Treino curto para dias difíceis</h2>
+  <p>Em dias de sono ruim, cansaço ou dor leve (até 3 em 10), faça esta versão de 30 minutos em vez de pular o treino. Com febre, dor no peito, tontura ou dor forte, descanse.</p>
+  <div class="tbl"><table class="plain"><thead><tr><th>Parte</th><th>Tempo</th><th>O que fazer</th></tr></thead><tbody><tr><td class="b first" data-label="Parte">Aquecimento</td><td data-label="Tempo">5 min</td><td data-label="O que fazer">Marcha no lugar e mobilidade de ombros, quadril e tornozelos.</td></tr><tr><td class="b first" data-label="Parte">Potência e equilíbrio do dia</td><td data-label="Tempo">8 min</td><td data-label="O que fazer">Igual à ficha do dia.</td></tr><tr><td class="b first" data-label="Parte">Força</td><td data-label="Tempo">12 min</td><td data-label="O que fazer">1 série de cada exercício (A1 a C2), com esforço moderado.</td></tr><tr><td class="b first" data-label="Parte">Volta à calma</td><td data-label="Tempo">5 min</td><td data-label="O que fazer">Alongamentos do dia.</td></tr></tbody></table></div>
+</section>
+
+<section id="intensidade">
+  <span class="eyebrow">Intensidade</span>
+  <h2>Como saber se o peso está certo</h2>
+  <p>A intensidade é controlada pela percepção de esforço (PSE, de 0 a 10) e pelas repetições que sobram no fim da série. Não é preciso ir até a falha.</p>
+  <div class="tbl"><table class="plain"><thead><tr><th>PSE</th><th>Como se sente</th><th>Reps que sobram</th><th>Quando usar</th></tr></thead><tbody><tr><td class="b first" data-label="PSE">4–5</td><td data-label="Como se sente">Moderado, conversa normalmente</td><td data-label="Reps que sobram">5 ou mais</td><td data-label="Quando usar">Aquecimento</td></tr><tr><td class="b first" data-label="PSE">6–7</td><td data-label="Como se sente">Difícil, mas a técnica continua perfeita</td><td data-label="Reps que sobram">3–4</td><td data-label="Quando usar">Semana 1 e semana 11</td></tr><tr><td class="b first" data-label="PSE">7–8</td><td data-label="Como se sente">Muito difícil nas últimas repetições</td><td data-label="Reps que sobram">2–3</td><td data-label="Quando usar">Semanas 2 a 10</td></tr><tr><td class="b first" data-label="PSE">9–10</td><td data-label="Como se sente">Não consegue mais nenhuma</td><td data-label="Reps que sobram">0–1</td><td data-label="Quando usar">Evitar</td></tr></tbody></table></div>
+</section>
+
+<section id="progressao">
+  <span class="eyebrow">Periodização</span>
+  <h2>Progressão em 12 semanas</h2>
+  <div class="tbl"><table class="plain"><thead><tr><th>Semanas</th><th>Fase</th><th>Séries × reps</th><th>PSE</th><th>Foco</th></tr></thead><tbody><tr><td class="b first" data-label="Semanas">1</td><td data-label="Fase">Readaptação</td><td data-label="Séries × reps">2 × 10–12</td><td data-label="PSE">6</td><td data-label="Foco">Retomar a técnica com o material de casa e escolher o nível inicial de cada exercício. Quarta com 2 voltas.</td></tr><tr><td class="b first" data-label="Semanas">2–5</td><td data-label="Fase">Base de força</td><td data-label="Séries × reps">3 × 8–12</td><td data-label="PSE">7</td><td data-label="Foco">Doses das fichas, subindo de nível pela regra.</td></tr><tr><td class="b first" data-label="Semanas">6–10</td><td data-label="Fase">Força e potência</td><td data-label="Séries × reps">3 × 6–10 (4 em A1 e A2)</td><td data-label="PSE">7–8</td><td data-label="Foco">Níveis mais altos e potência com velocidade máxima.</td></tr><tr><td class="b first" data-label="Semanas">11</td><td data-label="Fase">Semana leve</td><td data-label="Séries × reps">Uma série a menos (mínimo 2)</td><td data-label="PSE">6</td><td data-label="Foco">Mantém o nível alcançado. Quarta com 2 voltas.</td></tr><tr><td class="b first" data-label="Semanas">12</td><td data-label="Fase">Reavaliação</td><td data-label="Séries × reps">—</td><td data-label="PSE">—</td><td data-label="Foco">Refazer os testes e montar o próximo ciclo.</td></tr></tbody></table></div>
+  <p><strong>Quando subir de nível:</strong> ao completar o número máximo de repetições em todas as séries, com 2 ou mais sobrando, por dois treinos seguidos. Ao subir de nível, volte para o início da faixa de repetições. Os níveis de cada exercício estão nas fichas.</p>
+  <h3>Equipamento que vale comprar (opcional)</h3>
+  <p>Em ordem de prioridade. Com o que ela tem hoje, os níveis mantêm o progresso por algumas semanas, mas com o histórico de academia dela o levantamento terra e o agachamento devem chegar ao último nível rápido.</p>
+  <div class="tbl"><table class="plain"><thead><tr><th>#</th><th>Item</th><th>Por quê</th></tr></thead><tbody><tr><td class="b first" data-label="#">1</td><td data-label="Item">Halteres leves de 2 a 5 kg (ou um par ajustável)</td><td data-label="Por quê">Faz a ponte entre a faixa vermelha e o halter de 10 kg em elevação lateral, desenvolvimento e rosca.</td></tr><tr><td class="b first" data-label="#">2</td><td data-label="Item">Kettlebell de 20 a 24 kg</td><td data-label="Por quê">O levantamento terra, a ponte e o agachamento vão ficar leves com 16 kg em 6 a 10 semanas.</td></tr><tr><td class="b first" data-label="#">3</td><td data-label="Item">Kit de mini bands (faixas curtas)</td><td data-label="Por quê">Opcional: deixa os passos laterais e a ponte mais difíceis.</td></tr></tbody></table></div>
+</section>
+
+<section id="semana">
+  <span class="eyebrow">Divisão semanal</span>
+  <h2>Divisão da semana e caminhadas</h2>
+  <p>A divisão alterna membros inferiores e superiores, com 48 a 72 horas entre os treinos do mesmo grupo. A quarta-feira é mais leve, com potência, equilíbrio e funcionalidade.</p>
+  <h3>Caminhadas da semana</h3>
+  <p>Somam 150 minutos, num ritmo em que dá para conversar, mas não cantar. Podem ser em outro horário do dia. Se ela ainda não caminha com regularidade, comece com metade do tempo nas duas primeiras semanas.</p>
+  <div class="walks">
+    <div><b>Segunda</b><span class="w">—</span><span>Inferiores A</span></div>
+    <div><b>Terça</b><span class="w">20 min</span><span>Superiores A</span></div>
+    <div><b>Quarta</b><span class="w">20 min</span><span>Potência e equilíbrio</span></div>
+    <div><b>Quinta</b><span class="w">20 min</span><span>Inferiores B</span></div>
+    <div><b>Sexta</b><span class="w">20 min</span><span>Superiores B</span></div>
+    <div><b>Sábado</b><span class="w">40 min</span><span>Descanso do treino</span></div>
+    <div><b>Domingo</b><span class="w">30 min</span><span>Descanso</span></div>
+  </div>
+</section>
+
+<section id="sobre" class="divider">
+  <span class="eyebrow">Sobre o plano</span>
+  <h2>Base científica, alimentação, testes e segurança</h2>
+  <p>Informações de apoio para quem acompanha o treino.</p>
+</section>
+
+<section id="evidencias">
+  <span class="eyebrow">Base científica</span>
+  <h2>O que a pesquisa atual recomenda</h2>
+  <div class="facts">
+    <div><b>2×</b><span>por semana, no mínimo, para cada grupo muscular</span></div>
+    <div><b>2–3</b><span>séries por exercício, 6 a 15 repetições</span></div>
+    <div><b>3×</b><span>por semana de equilíbrio progressivo + força</span></div>
+    <div><b>150 min</b><span>de caminhada moderada por semana</span></div>
+    <div><b>1,0–1,2 g</b><span>de proteína por kg de peso por dia</span></div>
+  </div>
+  <ul class="ev">
+    <li><strong>ACSM, Position Stand 2026.</strong> Primeira grande atualização em 17 anos, baseada em 137 revisões sistemáticas. Treinar todos os grandes grupos musculares pelo menos 2 vezes por semana e priorizar a regularidade. Ir até a falha não é necessário. Para potência, cargas moderadas movidas rápido, com atenção especial a idosos.</li>
+    <li><strong>NSCA (Fragala et al., 2019).</strong> Treino individualizado e progressivo, 2 a 3 vezes por semana, com foco também em potência.</li>
+    <li><strong>Treino de potência.</strong> Meta-análises de 2022 e 2023 mostram resultados iguais ou um pouco melhores que o treino tradicional em testes como levantar da cadeira e caminhar. Por isso cada sessão começa com um bloco curto de potência.</li>
+    <li><strong>OMS 2020, Diretrizes Mundiais de Quedas 2022 e Guia brasileiro 2021.</strong> Equilíbrio desafiado de forma progressiva e força em 3 ou mais dias por semana, além de 150 a 300 minutos semanais de atividade aeróbica moderada.</li>
+    <li><strong>Proteína (PROT-AGE 2013 e ESPEN 2014).</strong> Idosos ativos precisam de 1,0 a 1,2 g de proteína por kg por dia para que o treino se converta em músculo.</li>
+    <li><strong>Saúde óssea (LIFTMOR 2018 e consenso britânico 2022).</strong> A força progressiva é o principal estímulo para os ossos. O impacto deve ser individualizado: neste plano é opcional e depende de densitometria e liberação médica.</li>
+  </ul>
+</section>
+
+<section id="proteina">
+  <span class="eyebrow">Alimentação</span>
+  <h2>Proteína para ganhar músculo</h2>
+  <p>O treino só constrói músculo se houver proteína suficiente. Para pessoas idosas ativas, a referência é de 1,0 a 1,2 g de proteína por kg de peso por dia, dividida em 25 a 30 g por refeição, com uma refeição com proteína até 2 horas depois do treino.</p>
+  <div class="two">
+    <div><div class="tbl"><table class="plain"><thead><tr><th>Peso</th><th>Proteína por dia</th></tr></thead><tbody><tr><td class="b first" data-label="Peso">55 kg</td><td data-label="Proteína por dia">55–66 g</td></tr><tr><td class="b first" data-label="Peso">60 kg</td><td data-label="Proteína por dia">60–72 g</td></tr><tr><td class="b first" data-label="Peso">65 kg</td><td data-label="Proteína por dia">65–78 g</td></tr><tr><td class="b first" data-label="Peso">70 kg</td><td data-label="Proteína por dia">70–84 g</td></tr><tr><td class="b first" data-label="Peso">75 kg</td><td data-label="Proteína por dia">75–90 g</td></tr></tbody></table></div></div>
+    <div><div class="tbl"><table class="plain"><thead><tr><th>Alimento</th><th>Proteína</th></tr></thead><tbody><tr><td class="first" data-label="Alimento">1 ovo</td><td data-label="Proteína">6 g</td></tr><tr><td class="first" data-label="Alimento">100 g de frango, carne ou peixe cozidos</td><td data-label="Proteína">22–30 g</td></tr><tr><td class="first" data-label="Alimento">1 lata de atum escorrido</td><td data-label="Proteína">25 g</td></tr><tr><td class="first" data-label="Alimento">1 copo de leite (200 ml)</td><td data-label="Proteína">6 g</td></tr><tr><td class="first" data-label="Alimento">1 pote de iogurte natural (170 g)</td><td data-label="Proteína">6 g (versões proteicas: veja o rótulo)</td></tr><tr><td class="first" data-label="Alimento">2 fatias de queijo minas (40 g)</td><td data-label="Proteína">7 g</td></tr><tr><td class="first" data-label="Alimento">1 concha de feijão, lentilha ou grão-de-bico</td><td data-label="Proteína">5 g</td></tr></tbody></table></div></div>
+  </div>
+  <h3>Exemplo de dia para quem pesa 75 kg (≈ 90 g)</h3>
+  <div class="tbl"><table class="plain"><thead><tr><th>Refeição</th><th>Exemplo</th><th>Proteína</th></tr></thead><tbody><tr><td class="b first" data-label="Refeição">Café da manhã</td><td data-label="Exemplo">2 ovos mexidos + 1 copo de leite + 1 fatia de queijo</td><td data-label="Proteína">≈ 22 g</td></tr><tr><td class="b first" data-label="Refeição">Almoço</td><td data-label="Exemplo">100–120 g de frango ou carne + 1 concha de feijão</td><td data-label="Proteína">≈ 35 g</td></tr><tr><td class="b first" data-label="Refeição">Lanche</td><td data-label="Exemplo">1 iogurte natural ou proteico</td><td data-label="Proteína">≈ 6–15 g</td></tr><tr><td class="b first" data-label="Refeição">Jantar</td><td data-label="Exemplo">Omelete de 2 ovos com atum, ou 100 g de peixe</td><td data-label="Proteína">≈ 25 g</td></tr></tbody></table></div>
+  <p>Este exemplo é para quem pesa cerca de 75 kg. Primeiro veja a meta pelo peso dela na tabela acima e ajuste as porções até chegar a ela.</p>
+  <div class="note"><p>Confirme as quantidades com um nutricionista, principalmente se houver doença nos rins. Suplementos como whey protein ou creatina só com orientação profissional. Vitamina D e cálcio devem ser avaliados pelo médico.</p></div>
+</section>
+
+<section id="registro">
+  <span class="eyebrow">Acompanhamento</span>
+  <h2>Registro de treino</h2>
+  <p>A cada treino, anote o peso ou a cor da faixa, as repetições de cada série, o esforço (PSE) e a dor (0 a 10). É esse registro que mostra quando subir de nível. A folha para imprimir, com todos os exercícios, está no fim do arquivo Word.</p>
+</section>
+
+<section id="avaliacao">
+  <span class="eyebrow">Avaliação</span>
+  <h2>Testes antes de começar e na semana 12</h2>
+  <div class="tbl"><table class="plain"><thead><tr><th>Teste</th><th>Como fazer</th><th>Referência (mulheres 60–64)</th></tr></thead><tbody><tr><td class="b first" data-label="Teste">Sentar e levantar em 30 s</td><td data-label="Como fazer">Cadeira de 43 cm, braços cruzados</td><td data-label="Referência (mulheres 60–64)">12–17 repetições. Abaixo de 12 indica risco de queda.</td></tr><tr><td class="b first" data-label="Teste">Sentar e levantar 5 vezes (potência)</td><td data-label="Como fazer">Cronometrar 5 repetições o mais rápido possível</td><td data-label="Referência (mulheres 60–64)">Cerca de 11,4 s para 60–69 anos. Quanto menor, melhor.</td></tr><tr><td class="b first" data-label="Teste">Flexão de cotovelo em 30 s</td><td data-label="Como fazer">Garrafa de 2 litros cheia (≈ 2 kg), sentada</td><td data-label="Referência (mulheres 60–64)">13–19 repetições</td></tr><tr><td class="b first" data-label="Teste">Timed Up and Go (TUG)</td><td data-label="Como fazer">Levanta, anda 3 m, volta e senta</td><td data-label="Referência (mulheres 60–64)">12 s ou mais indica risco de queda</td></tr><tr><td class="b first" data-label="Teste">Equilíbrio em 4 estágios</td><td data-label="Como fazer">Pés juntos, semi-tandem, tandem, uma perna</td><td data-label="Referência (mulheres 60–64)">Não manter o tandem por 10 s indica risco</td></tr><tr><td class="b first" data-label="Teste">Marcha parada de 2 min</td><td data-label="Como fazer">Joelho até a metade da coxa</td><td data-label="Referência (mulheres 60–64)">75–107 passos</td></tr></tbody></table></div>
+  <p>Vídeo do teste de potência: <a class="vid" href="https://www.youtube.com/watch?v=NStIK7VUMng">sentar e levantar 5 vezes</a>. Referências: Senior Fitness Test (Rikli e Jones), STEADI do CDC e Bohannon (2006).</p>
+</section>
+
+<section id="seguranca">
+  <span class="eyebrow">Segurança</span>
+  <h2>Cuidados antes e durante o treino</h2>
+  <div class="note warn"><p><strong>Antes de começar:</strong> liberação médica e o questionário PAR-Q+, principalmente se houver hipertensão, problema cardíaco, diabetes, osteoporose, prótese articular ou dor persistente. Se houver hipertensão, medir a pressão antes do treino. Em caso de osteoporose, confirmar com o médico os exercícios com carga e evitar dobrar a coluna segurando peso.</p></div>
+  <ul class="ev">
+    <li>Respirar o tempo todo: soltar o ar no esforço, sem prender a respiração.</li>
+    <li>Cadeira firme ou parede sempre ao alcance nos exercícios de equilíbrio. Tênis com solado firme e chão sem tapete solto.</li>
+    <li>Dor nas articulações acima de 3 em 10, ou que piora no dia seguinte: diminuir a carga ou trocar o exercício.</li>
+    <li>Parar na hora se sentir dor ou aperto no peito, tontura, visão turva, náusea, falta de ar fora do normal ou palpitações.</li>
+    <li>O bloco de impacto (deixar o calcanhar cair) é opcional e só depois de densitometria óssea e liberação médica.</li>
+    <li>Conferir as faixas antes de usar (rachaduras), prender a faixa em laço no armador de rede e nunca soltar a faixa esticada de uma vez.</li>
+  </ul>
+</section>
+
+<section id="fontes">
+  <span class="eyebrow">Referências</span>
+  <h2>Fontes</h2>
+  <ol class="src">
+    <li><a href="https://acsm.org/resistance-training-guidelines-update-2026/">American College of Sports Medicine. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. Position Stand, 2026.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/31343601/">Fragala MS et al. Resistance Training for Older Adults: Position Statement From the NSCA. J Strength Cond Res, 2019.</a></li>
+    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9096601/">Balachandran AT et al. Power Training vs Traditional Strength Training on Physical Function in Older Adults. JAMA Netw Open, 2022.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/37328359/">High-velocity power training has similar effects to traditional resistance training for functional performance in older adults. J Physiother, 2023.</a></li>
+    <li><a href="https://www.who.int/publications/i/item/9789240015128">Organização Mundial da Saúde. Guidelines on physical activity and sedentary behaviour, 2020.</a></li>
+    <li><a href="https://academic.oup.com/ageing/article/51/9/afac205/6730755">Montero-Odasso M et al. World guidelines for falls prevention and management for older adults. Age and Ageing, 2022.</a></li>
+    <li><a href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf">Ministério da Saúde. Guia de Atividade Física para a População Brasileira, 2021.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/23867520/">Bauer J et al. Recomendações de ingestão de proteína para idosos (PROT-AGE). J Am Med Dir Assoc, 2013.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/24814383/">Deutz NE et al. Protein intake and exercise for optimal muscle function with aging (ESPEN). Clin Nutr, 2014.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/28975661/">Watson SL et al. LIFTMOR: treino de alta intensidade e impacto, supervisionado, em mulheres após a menopausa. J Bone Miner Res, 2018.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/35577538/">Brooke-Wavell K et al. Strong, steady and straight: UK consensus statement on physical activity and exercise for osteoporosis. Br J Sports Med, 2022.</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/17037663/">Bohannon RW. Reference values for the five-repetition sit-to-stand test. Percept Mot Skills, 2006.</a></li>
+    <li><a href="https://www.cdc.gov/steadi/">CDC. STEADI: testes de risco de queda.</a></li>
+    <li><a href="https://eparmedx.com/">PAR-Q+: questionário de prontidão para atividade física.</a></li>
+  </ol>
+</section>
+
+</main>
+
+<footer>Este plano é um ponto de partida para pessoas idosas saudáveis. Ajuste exercícios e cargas conforme a avaliação individual, a liberação médica e a sua resposta nas primeiras semanas.</footer>
+</div>
+<div class="timer" id="timer">
+  <div class="timer-panel" id="timer-panel" hidden>
+    <p class="timer-display" id="timer-display">0:45</p>
+    <div class="timer-opts">
+      <button type="button" data-s="45">45 s</button>
+      <button type="button" data-s="60">60 s</button>
+      <button type="button" data-s="90">90 s</button>
+    </div>
+    <div class="timer-row">
+      <button type="button" class="btn" id="timer-stop">Parar</button>
+      <button type="button" class="btn" id="timer-test">Testar som</button>
+    </div>
+    <p class="timer-note" id="timer-note">No iPhone, o som não toca com o modo silencioso ligado. O botão pulsa ao terminar.</p>
+  </div>
+  <button type="button" class="timer-fab" id="timer-fab" aria-expanded="false" aria-controls="timer-panel">Descanso</button>
+  <p class="sr" id="timer-sr" role="status"></p>
+</div>
+<script>(function () {
+  var KEYS = ["", "seg", "ter", "qua", "qui", "sex", ""];
+  var NAMES = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var TITLES = {"seg":"Inferiores A","ter":"Superiores A","qua":"Potência e equilíbrio","qui":"Inferiores B","sex":"Superiores B"};
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Treino de hoje
+  var d = new Date().getDay(), key = KEYS[d];
+  var h = $("hoje-t"), msg = $("hoje-msg"), go = $("hoje-go");
+  if (key) {
+    h.textContent = "Hoje é " + NAMES[d] + ": " + TITLES[key];
+    msg.textContent = "Comece pelo aquecimento e siga a ficha de cima para baixo. Toque em outro dia para ver as outras fichas.";
+    go.href = "#" + key;
+    go.textContent = "Começar o treino de " + NAMES[d];
+    document.querySelectorAll('.daybar a[data-day="' + key + '"], .week a[href="#' + key + '"]').forEach(function (a) {
+      a.classList.add("today"); a.setAttribute("aria-current", "date");
+    });
+  } else {
+    h.textContent = "Hoje é " + NAMES[d] + ": dia de caminhada";
+    msg.textContent = d === 6
+      ? "Caminhada de 40 minutos, num ritmo em que dá para conversar, mas não cantar."
+      : "Passeio leve de 30 minutos ou descanso. Amanhã tem treino de inferiores.";
+    go.href = "#semana";
+    go.textContent = "Ver as caminhadas da semana";
+  }
+
+  // Dia visível na barra de navegação
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var a = document.querySelector('.daybar a[data-day="' + e.target.id + '"]');
+        if (a) a.classList.toggle("active", e.isIntersecting);
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    KEYS.forEach(function (k) { var el = k && $(k); if (el) io.observe(el); });
+  }
+
+  // Manter a tela acesa
+  var lock = null, want = false, wb = $("wake-btn"), wm = $("wake-msg");
+  function paint() {
+    wb.setAttribute("aria-pressed", want ? "true" : "false");
+    wb.textContent = want ? "Tela acesa (tocar para desligar)" : "Manter a tela acesa";
+  }
+  function request() {
+    if (!("wakeLock" in navigator)) {
+      want = false; paint();
+      wm.textContent = "Este aparelho não permite manter a tela acesa pela página. Ajuste o bloqueio de tela nas configurações do celular.";
+      return;
+    }
+    navigator.wakeLock.request("screen").then(function (l) {
+      lock = l;
+      wm.textContent = "A tela vai ficar acesa enquanto esta página estiver aberta.";
+      l.addEventListener("release", function () { lock = null; });
+    }).catch(function () {
+      want = false; paint();
+      wm.textContent = "Não foi possível manter a tela acesa neste aparelho. Ajuste o bloqueio de tela nas configurações do celular.";
+    });
+  }
+  wb.addEventListener("click", function () {
+    want = !want; paint();
+    if (want) request();
+    else { if (lock) lock.release(); wm.textContent = ""; }
+  });
+  document.addEventListener("visibilitychange", function () {
+    if (want && !lock && document.visibilityState === "visible") request();
+  });
+
+  // Cronômetro de descanso
+  var fab = $("timer-fab"), panel = $("timer-panel"), disp = $("timer-display"), sr = $("timer-sr");
+  var end = 0, tick = null, ctx = null;
+  function fmt(s) { return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2); }
+  function setOpen(open) { panel.hidden = !open; fab.setAttribute("aria-expanded", open ? "true" : "false"); }
+  fab.addEventListener("click", function () { setOpen(panel.hidden); });
+  function beep() {
+    try {
+      if (!ctx) return;
+      [0, 0.35, 0.7].forEach(function (t) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(0.25, ctx.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.25);
+        o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.26);
+      });
+    } catch (e) {}
+    try { if (navigator.vibrate) navigator.vibrate([300, 150, 300]); } catch (e) {}
+  }
+  function stop(label) {
+    clearInterval(tick); tick = null;
+    fab.textContent = "Descanso"; fab.classList.remove("running");
+    disp.textContent = label;
+  }
+  function update() {
+    var left = Math.max(0, Math.ceil((end - Date.now()) / 1000));
+    disp.textContent = fmt(left); fab.textContent = fmt(left);
+    if (left <= 0) {
+      stop("Pronto!");
+      sr.textContent = "Descanso terminado. Próxima série.";
+      fab.classList.add("ring");
+      setTimeout(function () { fab.classList.remove("ring"); }, 3000);
+      beep();
+    }
+  }
+  panel.querySelectorAll("[data-s]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); if (ctx.resume) ctx.resume(); } catch (e) { ctx = null; }
+      end = Date.now() + Number(b.getAttribute("data-s")) * 1000;
+      sr.textContent = "";
+      fab.classList.add("running");
+      clearInterval(tick); tick = setInterval(update, 250); update();
+    });
+  });
+  $("timer-stop").addEventListener("click", function () { stop("0:00"); });
+  $("timer-test").addEventListener("click", function () {
+    try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); if (ctx.resume) ctx.resume(); } catch (e) { ctx = null; }
+    if (!ctx) { sr.textContent = "Este aparelho não permite som pela página."; $("timer-note").textContent = "Este aparelho não permite som pela página: o aviso é o botão pulsando."; return; }
+    beep();
+    $("timer-note").textContent = "Se não ouviu os 3 bipes, confira o volume e a chave do modo silencioso.";
+  });
+})();
+</script>
+<script>(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  var standalone = window.navigator.standalone === true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
+  var ua = navigator.userAgent;
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isSafari = isIOS && !/CriOS|FxiOS|EdgiOS/.test(ua);
+
+  // Instalação
+  var box = $("pwa-install"), steps = $("pwa-steps"), btn = $("pwa-install-btn"), later = $("pwa-later");
+  var deferred = null;
+  function showBox() { if (!standalone && store.get("pwa-dispensado") !== "1") box.hidden = false; }
+  if (isIOS) {
+    steps.innerHTML = isSafari
+      ? "<li>Toque no botão <strong>Compartilhar</strong> (o quadrado com a seta para cima) na barra do Safari.</li><li>Role e toque em <strong>Adicionar à Tela de Início</strong>.</li><li>Toque em <strong>Adicionar</strong>. O ícone do kettlebell aparece junto dos outros apps.</li>"
+      : "<li>Abra este endereço no <strong>Safari</strong>.</li><li>Toque em <strong>Compartilhar</strong> e depois em <strong>Adicionar à Tela de Início</strong>.</li>";
+    showBox();
+  }
+  window.addEventListener("beforeinstallprompt", function (e) {
+    e.preventDefault(); deferred = e;
+    steps.innerHTML = "<li>Toque em <strong>Instalar o app</strong> e confirme.</li>";
+    btn.hidden = false; showBox();
+  });
+  btn.addEventListener("click", function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function () { deferred = null; box.hidden = true; });
+  });
+  later.addEventListener("click", function () { box.hidden = true; store.set("pwa-dispensado", "1"); });
+
+  // Sem internet
+  var off = $("pwa-offline");
+  function net() { off.hidden = navigator.onLine; }
+  window.addEventListener("online", net); window.addEventListener("offline", net); net();
+
+  // Atualização
+  var upd = $("pwa-update"), updBtn = $("pwa-update-btn"), waiting = null, reloading = false;
+  function offer(w) { waiting = w; upd.hidden = false; }
+  updBtn.addEventListener("click", function () { if (waiting) waiting.postMessage("skipWaiting"); });
+  // Status do modo sem internet: só confirma quando o service worker está ativo e a cópia foi salva
+  var st = $("pwa-status");
+  function status(text, ok) { if (!st) return; st.textContent = text; st.classList.toggle("ok", !!ok); }
+  function checkOffline() {
+    navigator.serviceWorker.ready.then(function (reg) {
+      return caches.keys().then(function (keys) {
+        var shell = keys.filter(function (k) { return k.indexOf("shell-") === 0; })[0];
+        if (!reg.active || !shell) return false;
+        return caches.open(shell).then(function (c) { return c.match("./index.html"); }).then(function (r) { return !!r; });
+      });
+    }).then(function (ok) {
+      status(ok ? "✓ Pronto para usar sem internet." : "O modo sem internet ainda não está pronto. Abra o app com internet uma vez.", ok);
+    }).catch(function () { status("Este navegador não permite usar o app sem internet.", false); });
+  }
+  if (!("serviceWorker" in navigator)) status("Este navegador não permite usar o app sem internet.", false);
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(function (reg) {
+      checkOffline();
+      if (reg.waiting && navigator.serviceWorker.controller) offer(reg.waiting);
+      reg.addEventListener("updatefound", function () {
+        var nw = reg.installing;
+        nw.addEventListener("statechange", function () {
+          if (nw.state === "installed" && navigator.serviceWorker.controller) offer(nw);
+        });
+      });
+      document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible") reg.update(); });
+    }).catch(function () { status("Não foi possível ativar o modo sem internet neste navegador.", false); });
+    navigator.serviceWorker.addEventListener("controllerchange", function () {
+      if (reloading) return; reloading = true; location.reload();
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
